@@ -108,7 +108,11 @@ reg[7:0]    spi_out_byte_tmp; /* synthesis keep*/
 
 always @(posedge sys_clk or negedge rst_n) 
 begin
-    if( (!rst_n)||(st_spi_ncs_d=='d1))
+    if(!rst_n)
+        begin
+            spi_out_byte_tmp    <=  'd0;
+        end
+    else if(st_spi_ncs_d=='d1)
         begin
             spi_out_byte_tmp    <=  spi_out_byte;
         end
