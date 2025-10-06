@@ -9,12 +9,19 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+This Module simulate a simple spi slave controller for internal registers read&write.
+sys_clk should 4x faster than spi_clk at least.
+
 
 ## How to test
 
-Explain how to use your project
+// -------------------------- spi read reg timing -------------------------------- //
+// mosi     [cmd]   [addrN]     X       X       X       X
+// miso     X       X           X       datN    datN+1  datN+2
+
+// -------------------------- spi write reg timing ------------------------------ //
+// mosi     [cmd]   [addrN]     datN    datN+1  datN+2  ...
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+a external controller connect spi_ncs/spi_clk/spi_mosi/spi_miso
