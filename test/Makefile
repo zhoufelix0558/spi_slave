@@ -5,7 +5,7 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = tt_um_felixzhou_spi_slave_ctrl.v
+PROJECT_SOURCES = tt_um_felixzhou_spi_slave_ctrl.v spi_slave_ctrl.v spi_slave_core.v reg_port.v gene_simple_fifo_dat.v serial_fifo_dat_out.v
 
 ifneq ($(GATES),yes)
 
