@@ -6,7 +6,7 @@ module spi_slave_core (
     input                   st_spi_mosi,
     input                   st_spi_clk,
     input                   st_spi_ncs,
-    output  reg             st_spi_miso,
+    output  wire            st_spi_miso,
 
     input[7:0]              spi_out_byte,
 
@@ -134,10 +134,11 @@ begin
 end
 
 
-always @(*) 
-begin
-    st_spi_miso <=  spi_out_byte_tmp[7];
-end
+// always @(*) 
+// begin
+//     st_spi_miso <=  spi_out_byte_tmp[7];
+// end
 
+assign  st_spi_miso = spi_out_byte_tmp[7];
 
 endmodule
