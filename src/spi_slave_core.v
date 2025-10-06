@@ -67,7 +67,14 @@ reg[7:0]    spi_dat_recv_tmp; /* synthesis keep*/
 
 always @(posedge sys_clk or negedge rst_n) 
 begin
-   if( (!rst_n)||(st_spi_ncs_d=='d1))
+   if(!rst_n)
+        begin
+            spi_clk_cnt         <=  'd0;
+            spi_dat_recv_tmp    <=  'd0;
+            spi_dat_recv        <=  'd0;
+            spi_dat_recv_dval   <=  'd0;
+        end
+    else if(st_spi_ncs_d=='d1)
         begin
             spi_clk_cnt         <=  'd0;
             spi_dat_recv_tmp    <=  'd0;
